@@ -1,0 +1,5 @@
+---
+title: "Get Thrifty"
+type: "exercise"
+description: "practice advanced iteration techniques"
+tags: "iteration, .each, .each_with_index, .map, .any, .all"
