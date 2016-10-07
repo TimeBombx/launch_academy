@@ -1,5 +1,3 @@
-
-
 campaign_data = [
   { first_name: "Jon", last_name: "Smith", age: 25, income: 50000, house_size: 1, gender: "male", education: "College" },
   { first_name: "Jane", last_name: "Davies", age: 30, income: 60000, house_size: 3, gender: "Female", education: "High School" },
@@ -22,11 +20,11 @@ def average( sym, campaign_data )
 end
 
 puts "Average Age: #{ average(:age, campaign_data) }"
-puts "Average Income: "
-puts "Average Household Size: "
-puts "Female %: "
-puts "Male %: "
-puts "Unspecified %: "
-puts "College %: "
-puts "High School %: "
-puts "Did Not Finish High School %: "
+puts "Average Income: #{ average(:income, campaign_data) }"
+puts "Average Household Size: #{ average(:house_size, campaign_data) }"
+puts "Female %: #{ (campaign_data.select { |data| data[:gender].downcase == "female" }.count / campaign_data.count.to_f) * 100.to_f }"
+puts "Male %: #{ (campaign_data.select { |data| data[:gender].downcase == "male" }.count / campaign_data.count.to_f) * 100.to_f }"
+puts "Unspecified %: #{ (campaign_data.select { |data| data[:gender].downcase == "unspecified" }.count / campaign_data.count.to_f) * 100.to_f }"
+puts "College %: #{ (campaign_data.select { |data| data[:education].downcase == "college" }.count / campaign_data.count.to_f) * 100.to_f }"
+puts "High School %: #{ (campaign_data.select { |data| data[:education].downcase == "high school" }.count / campaign_data.count.to_f) * 100.to_f }"
+puts "Did Not Finish High School %: #{ (campaign_data.select { |data| data[:education].downcase == "did not complete high school" }.count / campaign_data.count.to_f) * 100.to_f }"
