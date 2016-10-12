@@ -1,0 +1,6 @@
+---
+title: "Changing Instance State"
+type: "article"
+description: "Change the state of your instances after construction"
+tags: "oop, initialize, constructors, state, behavior, instance-methods"
+---

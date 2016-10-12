@@ -1,0 +1,5 @@
+---
+title: "Moving from Imperative Programming to Objects"
+type: "article"
+description: "Describes how we can define custom objects to combine data and the methods that operate on it."
+tags: "objects, classes, instance-variables, methods"

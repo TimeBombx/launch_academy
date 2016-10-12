@@ -1,0 +1,6 @@
+---
+title: "Ruby File IO and CSV"
+type: "article"
+description: "Learn how to read and write files and work with CSVs"
+ignore:
+- "ruby-file-io-and-csv.md"

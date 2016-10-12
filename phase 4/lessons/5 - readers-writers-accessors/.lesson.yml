@@ -1,0 +1,6 @@
+---
+title: "Readers, Writers & Accessors"
+type: "article"
+description: "Access and change your attributes from outside your object the Ruby way"
+tags: "oop, initialize, constructors, state, behavior, instance-methods"
+---
