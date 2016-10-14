@@ -13,6 +13,10 @@ class Movie
     (Time.parse(show_time) <=> @time).negative?
   end
 
+  def showing_between? time1, time2
+    @time.between?( Time.parse( time1 ), Time.parse( time2 ) )
+  end
+
   def comedy?
     catergory == "Comedy"
   end
@@ -33,6 +37,4 @@ movies = [
 puts "Does the movie show after 7:00PM?: #{ movies[0].showing_after? "7:00PM" }"
 puts "Does the movie show after 7:40PM?: #{ movies[0].showing_after? "7:40PM" }"
 puts "Is the movie a comedy? #{ movies[0].comedy? }"
-
-require 'pry'
-#binding.pry
+puts "Showing between 6:30PM and 7:30PM?: #{ movies[0].showing_between? "6:30PM", "7:30PM" }"
