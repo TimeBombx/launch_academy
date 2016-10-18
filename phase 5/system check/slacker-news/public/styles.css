@@ -1,0 +1,123 @@
+body {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+header {
+  background-color: #FF6600;
+  width: 80%;
+  margin: 0 auto;
+  height: 50px;
+}
+
+nav {
+  background-color: #FF6600;
+  padding: 15px;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+nav img {
+  float: left;
+  width: 34px;
+  height: 34px;
+  margin-right: 5px;
+  margin-top: -9px;
+  margin-left: -10px;
+  border:2px solid white;
+}
+
+nav h1 {
+  margin-top: -2px;
+  float: left;
+}
+
+nav li {
+  list-style: none;
+  display: inline;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav li .right {
+  margin-top: -100px;
+  margin-left: 57%;
+}
+
+nav ul {
+  margin-top: -1px;
+  margin-bottom: 10px;
+  margin-left: -25px;
+  margin-right: 0px;
+  width: 250%;
+}
+
+.right-section {
+  float: left;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+
+.content-container {
+  margin: 0 auto;
+  background-color: #F6F6EF;
+  width: 80%;
+}
+
+.content-container .post {
+  float:inherit;
+  height: 42px;
+  display: block;
+  clear: both;
+  padding: 15px;
+  font-size: 18px;
+}
+
+.content-container .post .rank {
+  float:left;
+  padding-right: 5px;
+}
+
+.content-container .post .title {
+  padding-right: 5px;
+  font-weight: bold;
+}
+.content-container .post .title a:hover {
+  text-decoration: none;
+}
+.content-container .post .title #hover:hover {
+  text-decoration: underline;
+}
+
+.content-container .post .statistics {
+  padding-top: 2px;
+  padding-left: 18px;
+  color: #978282;
+}
+
+.content-container .post .statistics a {
+  color: #978282;
+}
+.content-container .post .statistics a:hover {
+  text-decoration: underline;
+}
