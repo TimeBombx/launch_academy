@@ -1,0 +1,93 @@
+body {
+  background-color: #E5F3F4;
+  margin: 0;
+  font-family: 'Source Sans Pro';
+}
+
+nav {
+  background: #3498DB;
+  padding: 20px;
+  font-family: 'Alegreya';
+}
+
+nav h1 {
+  color: white;
+  margin-left: 30px;
+  font-size: 30px;
+}
+
+nav h3 {
+  color: white;
+  font-weight: normal;
+  margin: -25px 0 10px 30px;
+  font-size: 20px;
+}
+
+.quote {
+  width: 50%;
+  margin: 25px auto;
+  background-color: #2ECC71;
+  border-style: solid;
+  border-color: #3DBB7A;
+  border-width: 5px;
+  border-radius: 5px;
+}
+
+.quote p {
+  padding: 20px;
+  font-size: 19px;
+  margin: 0;
+}
+
+.quote .quoted-from {
+  margin-left: 64%;
+  font-style: italic;
+}
+
+.try-it-now {
+  width: 25%;
+  margin: 25px auto;
+  background-color: #E74C3C;
+  border-style: solid;
+  border-color: #C0392B;
+  border-width: 5px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  font-style: italic;
+}
+
+.try-it-now h4 {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.try-it-now a {
+  color: white;
+  font-size: 30px;
+}
+
+.blue-page-section {
+  background-color: #2C3E50;
+  padding: 20px;
+}
+
+.content-wrapper {
+  padding: 20px;
+  color: white;
+}
+
+footer {
+  background-color: #1C2224;
+  padding: 20px;
+  color: #3499DD;
+  margin: 0 auto;
+  text-align: center;
+}
+
+footer a {
+  color: #3499DD;
+  font-style: normal;
+  text-decoration: none;
+  padding: 20px;
+}
