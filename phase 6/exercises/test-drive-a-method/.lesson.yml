@@ -1,0 +1,7 @@
+---
+title: "Test Drive a Method"
+type: "video"
+description: "Follow the practice of red, green, refactor to test drive the implementation of a method"
+tags: "tdd, test driven development, methods"
+ignore:
+- "test-drive-a-method.md"
