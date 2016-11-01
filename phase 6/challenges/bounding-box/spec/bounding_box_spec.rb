@@ -72,4 +72,3 @@ RSpec.describe BoundingBox do
     end
   end
 end
-
