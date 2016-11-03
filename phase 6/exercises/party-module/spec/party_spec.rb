@@ -2,10 +2,7 @@ require 'spec_helper'
 
 class Launcher
   include PartyGoer
-
-  def self.invited?
-    true
-  end
+  extend PartyGoer
 end
 
 describe "The Party" do

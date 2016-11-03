@@ -3,8 +3,8 @@ class PersonalizedHavocError < StandardError
     super(msg)
   end
 end
-module PartyGoer
 
+module PartyGoer
   def drink
     @numberOfDrinks = 0 if @numberOfDrinks.nil?
     @numberOfDrinks += 1
@@ -18,5 +18,9 @@ module PartyGoer
 
   def cause_havoc
     raise PersonalizedHavocError.new("You should define this yourself!")
+  end
+
+  def invited?
+    true
   end
 end
