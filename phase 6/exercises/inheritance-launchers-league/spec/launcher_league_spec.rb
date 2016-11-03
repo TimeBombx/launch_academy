@@ -109,7 +109,7 @@ describe "Launcher League" do
     end
 
     it "has 500 fans per thousand" do
-      expect(ultradude.fans_per_thousand).to eq 500
+      expect(eris_esoteric.fans_per_thousand).to eq 500
     end
 
     it "is from a mystical realm" do
