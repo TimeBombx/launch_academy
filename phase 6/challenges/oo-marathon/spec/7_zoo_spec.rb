@@ -41,8 +41,8 @@ RSpec.describe Zoo do
     it "should add an animal to the first open cage" do
       gorilla = Gorilla.new("Bollo")
       zoo.add_animal(gorilla)
-      expect(zoo.cages.first.animal).to be_a(Gorilla)
-      zoo.cages[1..-1].each do |cage|
+      expect(zoo.cages.last.animal).to be_a(Gorilla)
+      zoo.cages[1..-2].each do |cage|
         expect(cage.empty?).to eq(true)
       end
     end
