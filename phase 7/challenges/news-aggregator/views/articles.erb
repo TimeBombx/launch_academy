@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Articles</title>
+  </head>
+
+  <body>
+    <h2>Articles</h2>
+
+    <% if @articles.size <= 0 %>
+      <h3>Sorry no articles<h3>
+    <% else %>
+      <ul>
+        <% @articles.each do |article| %>
+          <li><%= article[:article][:title] %></li>
+          <ul>
+            <li><strong>URL: </strong><a href="https://<%= article[:article][:url] %>" target="_blank"><%= article[:article][:url] %></li></a>
+            <li><strong>DESC: </strong><%= article[:article][:desc] %></li>
+          </ul>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <a href="/article/new"><input type="button" value="post a new article"></a>
+  </body>
+</html>

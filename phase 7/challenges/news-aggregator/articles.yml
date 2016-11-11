@@ -1,0 +1,10 @@
+---
+:article:
+  :title: This is the first article
+  :url: no url
+  :desc: This is a cool article
+---
+:article:
+  :title: test url
+  :url: google.com
+  :desc: test
