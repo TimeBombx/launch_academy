@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Massively Multiplayer Online Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <h1>MMORPS</h1>
+
+    <% if session[:flash_message] %>
+      <p><%= session[:flash_message] %></p>
+    <% end %>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Human:</td><td><%= @player_wins || 0 %></td></tr>
+        <tr><td>Computer:</td><td><%= @computer_wins || 0 %></td></tr>
+      </tbody>
+    </table>
+
+
+    <% unless @winner.nil? %>
+      <p><%= @winner %> wins!</p>
+
+      <form action="/reset" method="post">
+        <button>Play Again</button>
+      </form>
+    <% else %>
+      <form action="/choose" method="post">
+        <h2>Choose!</h2>
+
+        <input type="submit" name="choice" value="Rock">
+        <input type="submit" name="choice" value="Paper">
+        <input type="submit" name="choice" value="Scissors">
+      </form>
+    <% end %>
+  </body>
+</html>
