@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Grocery List</title>
+  </head>
+
+  <body>
+    <h2>Groceries</h2>
+
+    <ul>
+      <% @groceries.each do |grocery| %>
+        <li><%= grocery[0] %> <%= "(#{grocery[1]})" if grocery[1].to_i > 1 %></li>
+      <% end %>
+    </ul>
+
+    <form action="/groceries" method="post">
+      <label for="grocery">Name:</label>
+      <input type="text" id="grocery" name="grocery"><br />
+      <label for="quantity">Quantity:</label>
+      <input type="text" id="quantity" name="quantity">
+      <br /><br />
+      <input type="submit" value="Add">
+    </form>
+  </body>
+</html>
