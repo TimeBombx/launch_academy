@@ -1,0 +1,15 @@
+<h1><%= @grocery.name %></h1>
+
+<fieldset>
+  <legend>Edit Grocery listing</legend>
+  <form method="post" action="/groceries/<%= @grocery.id %>">
+    <input type="hidden" name="_method" value="PATCH">
+    
+    <label for="name">New name</label>
+    <input type="text" name="name" id="name" placeholder="<%= @grocery.name %>" />
+
+    <input type="submit" value="Submit" />
+  </form>
+</fieldset><br />
+
+<a href="/groceries">Back to list</a>

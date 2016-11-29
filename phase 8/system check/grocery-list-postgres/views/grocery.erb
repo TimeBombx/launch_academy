@@ -1,0 +1,21 @@
+<h1 style="display:inline;"><%= @grocery.name %></h1> | <a href="/groceries/<%= @grocery.id %>/edit">update</a>
+
+<ul id="grocery-list">
+  <% @comments.each do |comment| %>
+    <li class="item">
+      <%= comment %>
+    </li>
+  <% end %>
+</ul>
+
+<fieldset>
+  <legend>Add Comment</legend>
+  <form method="post" action="/groceries/<%= @grocery.id %>">
+    <label for="name">Comment</label>
+    <input type="text" name="comment" id="comment" />
+
+    <input type="submit" value="Submit" />
+  </form>
+</fieldset><br />
+
+<a href="/groceries">Back to list</a>
