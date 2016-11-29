@@ -1,0 +1,11 @@
+<h1>Movies</h1>
+<ul>
+  <li><a href="/movies/<%= @movie.id %>"><%= @movie.title %></a>, <%= @movie.year %>, <%= @movie.rating %>/100, <%= @movie.genre %>, <%= @movie.studio %></li>
+  <li>Actors</li>
+  <ul>
+  <% @actors.each do |actor| %>
+    <a href='/actors/<%= actor.id %>'><li><%= actor.name %></a> | <%= actor.character %></li>
+  <% end %>
+  </ul>
+</ul>
+<a href="/movies">Back to movies index</a>
