@@ -20,22 +20,23 @@ $( "#submit" ).submit(function( event ) {
     $('#grocery_name').val("");
   });
 });
+$(document).ready(function () {
+  $(document).on('click', '.delete', function( event ){
+    event.preventDefault();
 
-$('.delete').on('click', function( event ){
-  event.preventDefault();
+    var parent = $(this).parent();
+    var item = parent.text().trim();
 
-  var parent = $(this).parent();
-  var item = parent.text().trim();
+    var request = $.ajax({
+      method: "DELETE",
+      data: {
+        'name': item
+      },
+      url: "/groceries"
+    });
 
-  var request = $.ajax({
-    method: "DELETE",
-    data: {
-      'name': item
-    },
-    url: "/groceries"
-  });
-
-  request.done(function(){
-    parent.remove();
+    request.done(function(){
+      parent.remove();
+    });
   });
 });
