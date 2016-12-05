@@ -1,0 +1,5 @@
+development:
+  adapter: postgresql
+  database: brussels-sprouts
+  username:
+  password:
