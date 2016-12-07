@@ -1,4 +1,5 @@
 class Book < ActiveRecord::Base
-  has_one :checkout
-  has_one :category
+  has_many :checkouts
+
+  validates :title, presence: true, uniqueness: true
 end
