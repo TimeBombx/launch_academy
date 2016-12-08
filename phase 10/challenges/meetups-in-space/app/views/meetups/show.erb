@@ -1,0 +1,48 @@
+<br />
+<% if session[:user_id] == @meetup.user.id %>
+  <h1 style="display:inline;"><%= @meetup.title %></h1>
+  <a href="/meetup/<%= @meetup.id %>/edit"> | edit</a>
+  <a href="/meetup/<%= @meetup.id %>/delete"> | delete</a>
+<% else %>
+  <h1 style="display:inline;"><%= @meetup.title %></h1>
+<% end %>
+
+<p>Created by: <%= @meetup.user.username %></p>
+<p>Location: <%= @meetup.location %></p>
+<p><%= @meetup.description %></p>
+
+<div class="members">
+  <h2>Attending</h2>
+  <% if @meetup.users.count > 0 %>
+    <% @meetup.users.each do |user| %>
+      <p>
+        <img src="<%= user.avatar_url %>" />
+        <%= user.username %>
+      </p>
+    <% end %>
+  <% else %>
+    <p>No one is attending</p>
+  <% end %>
+</div>
+
+<% if current_user %>
+  <form method="POST" action="/meetups">
+    <input type="hidden" name="id" value="<%= @meetup.id %>" />
+    <% if @meetup.users.where(id: session[:user_id]).count < 1 %>
+      <input type="submit" name="option" value="Join meetup" class="button" id="join" />
+    <% else %>
+      <input type="submit" name="option" value="Leave meetup" class="button" id="leave" />
+    <% end %>
+  </form>
+<% else %>
+  <p><a href="/auth/github">Log in to join this meetup</a></p>
+<% end %>
+
+<h2>Comments</h2>
+<% @meetup.comments.each do |comment| %>
+  <p>
+    <img src="<%= comment.user.avatar_url %>" />
+    <%= comment.user.username %>
+  </p>
+  <p><%= comment.body %></p>
+<% end %>

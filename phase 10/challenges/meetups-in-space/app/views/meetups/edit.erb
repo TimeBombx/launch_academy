@@ -1,0 +1,15 @@
+<h1>Create a new Meetup</h1>
+<form method="POST" action="/meetup/<%= @meetup.id %>/edit">
+  <div id="meetup">
+    <label for="title">Title:</label><br />
+    <input type="textfield" name="title" value="<%= @meetup.title %>" />
+    <br /><br />
+    <label for="location">Location:</label><br />
+    <input type="textfield" name="location" value="<%= @meetup.location %>" />
+    <br /><br />
+    <label for="description">Description:</label><br />
+    <textarea name="description"><%= @meetup.description %></textarea>
+    <br /><br />
+    <input type="submit" />
+  </div>
+</form>

@@ -1,7 +1,7 @@
 # Configure the database used when in the development environment
 development:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql #postgresql
+  # encoding: unicode
   database: meetups_development
   pool: 20
   username:
@@ -9,8 +9,8 @@ development:
 
 # Configure the database used when in the test environment
 test:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql #postgresql
+  # encoding: unicode
   database: meetups_test
   pool: 20
   username:
