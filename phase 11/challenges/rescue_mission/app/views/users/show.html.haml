@@ -1,0 +1,8 @@
+%h1= "#{@user.username} (#{@user.name})"
+
+%h2 Posted questions
+%ul
+  - @user.questions.each do |q|
+    %li
+      = link_to question_path(q) do
+        %p= q.title

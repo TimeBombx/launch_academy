@@ -1,0 +1,30 @@
+%html
+  %head
+    %meta{ charset: "utf-8", name: "viewport", content: "width=device-widh" }
+    %meta{ name: "viewport", content: "width=device-widh", "initial-scale": 1.0 }
+    %title Launch Overflow
+    = stylesheet_link_tag "application.css"
+    = javascript_include_tag "application.js"
+    -# %link{rel: :stylesheet, type: :"text/css", href: "stylesheets/application.css"}
+  %body
+    %div.top-bar
+      %div.row  
+        %div.top-bar-left
+          %ul.menu
+            = link_to questions_path do
+              %li.menu-text Launch Overflow
+        %div.top-bar-right
+          %ul.menu
+            %li
+              = link_to new_question_path do
+                Submit Question
+            %li
+              %a Sign in
+
+    %div
+      #content.row
+        %div.medium-12.columns
+          = yield
+
+    %script(src="https://code.jquery.com/jquery-2.1.4.min.js")
+    %script(src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js")

@@ -1,0 +1,29 @@
+%br
+%div.blog-post
+  %div.callout
+    %h3
+      = link_to question_path(@question) do
+        = @question.title
+    %p= @question.body
+    = link_to user_path(@question.user) do
+      %small= "asked by: #{@question.user.username}"
+%h3 Answers
+
+- @question.answers.each do |answer|
+  %div.callout
+    %p= answer.body
+    %ul.menu.simple
+      %li.right
+        = link_to user_path(answer.user) do
+          %small= "answered  by: #{answer.user.username}"
+
+
+%a.submitanswer= "Post a new answer"
+
+%div.hidden
+  = form_for :answer, url: { action: "create", controller: "answers" }, class: 'answer-form' do |f|
+    = hidden_field_tag :question_id, @question.id
+    = hidden_field_tag :user_id, 1
+    = label_tag :body, "Post a new answer:"
+    = text_area_tag :body, nil
+    = submit_tag "Post answer"

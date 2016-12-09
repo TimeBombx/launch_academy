@@ -1,0 +1,17 @@
+%br
+%h1 Questions
+
+- @questions.each do |q|
+  %div.blog-post
+    %div.callout
+      %h4
+        = link_to question_path(q) do
+          = q.title
+      %ul.menu.simple
+        %li
+          = link_to user_path(q.user) do
+            %small= "Asked by: #{q.user.username}"
+        %li
+          = link_to question_path(q) do
+            %small= "Answers: #{q.answers.count}"
+

@@ -1,0 +1,9 @@
+%h1 Post a new question
+
+= form_for :question, url: {action: "create", controller: "questions"} do |f|
+  = label_tag :title, "Title:"
+  = text_field_tag :title
+  = label_tag :body, "Body:"
+  = text_area_tag :body, nil
+  = hidden_field_tag :user_id, 1
+  = submit_tag "Post question"
