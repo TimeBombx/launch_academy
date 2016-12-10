@@ -8,7 +8,7 @@
     -# %link{rel: :stylesheet, type: :"text/css", href: "stylesheets/application.css"}
   %body
     %div.top-bar
-      %div.row  
+      %div.row
         %div.top-bar-left
           %ul.menu
             = link_to questions_path do
@@ -19,11 +19,19 @@
               = link_to new_question_path do
                 Submit Question
             %li
-              %a Sign in
+              = link_to sessions_path, method: :post do
+                Sign in
 
     %div
       #content.row
         %div.medium-12.columns
+          - if flash[:notice]
+            %br
+            .success.callout{"data-closable" => "slide-out-right"}
+              %h5 This a friendly message.
+              %p And when you're done with me, I can be closed using a Motion UI animation.
+              %button.close-button{"aria-label" => "Dismiss alert", "data-close" => "", :type => "button"}
+                %span{"aria-hidden" => "true"} ×
           = yield
 
     %script(src="https://code.jquery.com/jquery-2.1.4.min.js")
