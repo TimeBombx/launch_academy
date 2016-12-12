@@ -19,8 +19,11 @@
               = link_to new_question_path do
                 Submit Question
             %li
-              = link_to sessions_path, method: :post do
-                Sign in
+              - if !@user.nil?
+                = @user.username
+              - else
+                = link_to signin_path do
+                  Sign in
 
     %div
       #content.row

@@ -5,5 +5,5 @@
   = text_field_tag :title
   = label_tag :body, "Body:"
   = text_area_tag :body, nil
-  = hidden_field_tag :user_id, 1
+  = hidden_field_tag :user_id, session['id']
   = submit_tag "Post question"

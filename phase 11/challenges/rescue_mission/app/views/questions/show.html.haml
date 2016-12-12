@@ -7,7 +7,8 @@
     %p= @question.body
     = link_to user_path(@question.user) do
       %small= "asked by: #{@question.user.username}"
-      - if session['id'] == @question.user.id
+    - if session['id'] == @question.user.id
+      = link_to edit_question_path(@question) do
         %small= "| edit"
 %h3 Answers
 
@@ -25,7 +26,7 @@
 %div.hidden
   = form_for :answer, url: { action: "create", controller: "answers" }, class: 'answer-form' do |f|
     = hidden_field_tag :question_id, @question.id
-    = hidden_field_tag :user_id, 1
+    = hidden_field_tag :user_id, session['id']
     = label_tag :body, "Post a new answer:"
     = text_area_tag :body, nil
     = submit_tag "Post answer"

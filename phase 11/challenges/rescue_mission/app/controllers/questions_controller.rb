@@ -18,10 +18,17 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def create_answer
+  def edit
+    @question = Question.find(params['id'])
   end
 
-  def edit
+  def update
+    @question = Question.find(params['id'])
+    if @question.update_attributes(question_params)
+      redirect_to questions_path
+    else
+      render 'edit'
+    end
   end
 
   def show

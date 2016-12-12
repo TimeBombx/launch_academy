@@ -1,2 +1,9 @@
-<h1>Questions#edit</h1>
-<p>Find me in app/views/questions/edit.html.erb</p>
+%h1 Edit your post
+
+= form_for :question, method: :patch, url: {action: "update", controller: "questions"} do |f|
+  = label_tag :title, "Title:"
+  = text_field_tag :title, @question.title
+  = label_tag :body, "Body:"
+  = text_area_tag :body, @question.body
+  = hidden_field_tag :user_id, session['id']
+  = submit_tag "Save question"
