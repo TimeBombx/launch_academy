@@ -1,6 +1,8 @@
 class QuestionsController < ApplicationController
   layout "layout"
 
+  skip_before_action :verify_authenticity_token
+
   def index
     @questions = Question.order('updated_at DESC')
   end
@@ -25,7 +27,7 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params['id'])
     if @question.update_attributes(question_params)
-      redirect_to questions_path
+      redirect_to question_path(@question)
     else
       render 'edit'
     end
@@ -36,6 +38,10 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    question = Question.find(params['id'])
+    if question.delete
+      redirect_to questions_path
+    end
   end
 
   private

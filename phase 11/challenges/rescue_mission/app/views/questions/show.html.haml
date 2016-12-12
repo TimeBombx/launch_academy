@@ -10,6 +10,8 @@
     - if session['id'] == @question.user.id
       = link_to edit_question_path(@question) do
         %small= "| edit"
+      = link_to question_path(@question), data: {:confirm => 'Are you sure?'}, method: :delete do
+        %small= "| delete"
 %h3 Answers
 
 - @question.answers.each do |answer|
