@@ -13,14 +13,21 @@
       .row
         .top-bar-left
           %ul.menu{"data-responsive-menu" => "accordion"}
-            = link_to reviews_path do
-              %li.menu-text Launch Tech Reviews
+            %li.menu-text
+              = link_to reviews_path do
+                Launch Tech Reviews
+            %li
+              %input{:placeholder => "Search", :type => "search"}/
+            %li
+              %button.button{:type => "button"} Search
+
             -# %li
             -#   %a{:href => "#"} One
         .top-bar-right
           %ul.dropdown.menu{"data-dropdown-menu" => ""}
             %li
-              %a{:href => "#"} Post a Review
+              = link_to new_review_path do
+                Post a Review
             %li.has-submenu
               - if @user.present?
                 %a{:href => "#0"} My account
@@ -35,4 +42,19 @@
                 = link_to user_login_path, class: "button" do
                   Login
     %br
+
+    - if flash[:notice]
+      .row
+        .success.callout{"data-closable" => ""}
+          %p= flash[:notice]
+          %button.close-button{"aria-label" => "Dismiss alert", "data-close" => "", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+
+    - if flash[:error]
+      .row
+        .alert.callout{"data-closable" => ""}
+          %p= flash[:error]
+          %button.close-button{"aria-label" => "Dismiss alert", "data-close" => "", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+
     = yield

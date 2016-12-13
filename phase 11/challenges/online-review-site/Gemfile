@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'foundation-rails'
 gem 'bcrypt'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -14,5 +14,12 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree .
+//= rating
 
 $(function(){ $(document).foundation(); });
+
+$(document).ready(function() {
+  $('.container').rating(function(vote, event){
+    $('#review_rating').val(vote);
+  });
+});
