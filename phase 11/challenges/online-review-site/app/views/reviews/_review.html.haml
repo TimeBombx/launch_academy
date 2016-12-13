@@ -1,0 +1,11 @@
+.column
+  .callout
+    = link_to review_path(review) do
+      %p
+        %img{:alt => "image of a planet called Pegasi B", :src => "http://placehold.it/400x370&text=Intel"}/
+    = link_to review_path(review) do
+      %p.lead= review.title
+    %p.subheader
+      Reviewed by
+      = link_to user_path(review.user) do
+        = review.user.username

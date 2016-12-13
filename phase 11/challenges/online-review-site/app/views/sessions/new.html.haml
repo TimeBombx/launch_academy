@@ -1,0 +1,11 @@
+.row
+  %h2 login
+  = form_for :user, method: "post" do |f|
+    .field
+      = f.label :username
+      = f.text_field :username, autofocus: true
+    .field
+      = f.label :password
+      = f.password_field :password, autocomplete: "off"
+    .actions
+      = f.submit "Login"

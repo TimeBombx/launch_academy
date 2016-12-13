@@ -1,0 +1,14 @@
+.row
+  %h2 Sign up
+  = form_for @user do |f|
+    .field
+      = f.label :username
+      = f.text_field :username, autofocus: true
+    .field
+      = f.label :password
+      = f.password_field :password, autocomplete: "off"
+    .field
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, autocomplete: "off"
+    .actions
+      = f.submit "Sign up"

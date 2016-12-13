@@ -1,0 +1,23 @@
+-# .row.column
+  %p.lead Featured Review
+  .row.column
+    .callout
+      = link_to review_path(@reviews.first) do
+        %p
+          %img{:alt => "image of a planet called Pegasi B", :src => "http://placehold.it/1400x270&text=Intel"}/
+      = link_to review_path(@reviews.first) do
+        %p.lead= @reviews.first.title
+      %p.subheader
+        Reviewed by
+        = link_to user_path(@reviews.first.user) do
+          = @reviews.first.user.username
+
+.row.column
+  %p.lead User submitted reviews
+
+.row.small-up-1.medium-up-2.large-up-3
+  - @reviews.each do |review|
+    = render "reviews/review", review: review
+
+.row.column
+  %a.button.hollow.expanded Load More

@@ -1,0 +1,38 @@
+%html
+  %head
+    %meta{ charset: "utf-8", name: "viewport", content: "width=device-widh" }
+    %meta{ name: "viewport", content: "width=device-widh", "initial-scale": 1.0 }
+    %title Launch Tech Reviews
+    = stylesheet_link_tag "application.css"
+    = javascript_include_tag "application.js"
+  %body
+    .title-bar{"data-hide-for" => "small", "data-responsive-toggle" => "realEstateMenu"}
+      %button.menu-icon{"data-toggle" => "", :type => "button"}
+      .title-bar-title Menu
+    .top-bar
+      .row
+        .top-bar-left
+          %ul.menu{"data-responsive-menu" => "accordion"}
+            = link_to reviews_path do
+              %li.menu-text Launch Tech Reviews
+            -# %li
+            -#   %a{:href => "#"} One
+        .top-bar-right
+          %ul.dropdown.menu{"data-dropdown-menu" => ""}
+            %li
+              %a{:href => "#"} Post a Review
+            %li.has-submenu
+              - if @user.present?
+                %a{:href => "#0"} My account
+                %ul.submenu.menu.vertical{"data-submenu" => ""}
+                  %li
+                    = link_to user_path(@user) do
+                      My reviews
+                  %li
+                    = link_to user_signout_path, method: :post do
+                      Sign out
+              - else
+                = link_to user_login_path, class: "button" do
+                  Login
+    %br
+    = yield
