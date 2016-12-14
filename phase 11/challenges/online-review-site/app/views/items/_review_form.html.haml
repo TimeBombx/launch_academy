@@ -1,0 +1,23 @@
+%label My Review
+
+= form_for @review do |f|
+  = f.label :title, "Title:"
+  = f.text_field :title
+
+  = f.label :body, "Body:"
+  = f.text_area :body, class: "review-body"
+
+  Rating:
+  %br
+  .container
+    %input.rating{:name => "example", :type => "radio", :value => "1"}
+    %input.rating{:name => "example", :type => "radio", :value => "2"}
+    %input.rating{:name => "example", :type => "radio", :value => "3"}
+    %input.rating{:name => "example", :type => "radio", :value => "4"}
+    %input.rating{:name => "example", :type => "radio", :value => "5"}
+
+  %br
+
+  = f.hidden_field :rating, value: 0
+  = f.hidden_field :item_id, value: @item.id
+  = f.submit "Submit Review", class: "button"

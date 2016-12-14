@@ -1,0 +1,22 @@
+.media-object.stack-for-small.callout{ class: "#{"primary" if review.rating >= 5 }"  }
+  .media-object-section
+    = link_to user_path(review.user) do
+      %h5= review.user.username
+    %h6= review.created_at.strftime("%b. %d %Y")
+
+    .float-left{style: "width: 50px" }
+      %span.upvote= human(review.upvotes)
+      %span.upvote-button.fi-like.icon-medium
+    .float-left{style: "width: 50px"  }
+      %span.downvote= review.downvotes
+      %span.downvote-button.fi-dislike.icon-medium
+
+  .media-object-section
+    - review.rating.times do
+      .star.fullStar.starRepo
+    - (5 - review.rating).times do
+      .star.tmp_es.starRepo
+    %h5= review.title
+    %p= review.body
+
+  %hr

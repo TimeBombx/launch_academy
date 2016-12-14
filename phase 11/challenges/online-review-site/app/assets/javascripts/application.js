@@ -15,6 +15,7 @@
 //= require foundation
 //= require_tree .
 //= rating
+//= util
 
 $(function(){ $(document).foundation(); });
 
@@ -23,3 +24,33 @@ $(document).ready(function() {
     $('#review_rating').val(vote);
   });
 });
+
+$(document).ready(function() {
+  $('.upvote-button').on('click', function(event) {
+    var upvoteButtonText = $('.upvote');
+    var upVal = parseInt(upvoteButtonText[0].innerHTML);
+    upvoteButtonText.html(abbrNum(upVal + 1, 2));
+  });
+  $('.downvote-button').on('click', function(event) {
+    var downvoteButtonText = $('.downvote');
+    var upVal = parseInt(downvoteButtonText[0].innerHTML);
+    downvoteButtonText.html(abbrNum(upVal + 1, 2));
+  });
+});
+
+// $(document).ready(function() {
+//   $('#new_review').submit(function( event ){
+//     event.preventDefault();
+//
+//     var data = $('form').serializeArray();
+//
+//     console.log(data);
+//
+//     // var request = $.ajax({
+//     //   method: "POST",
+//     //   data: {
+//     //   },
+//     //   url: ""
+//     // });
+//   });
+// });

@@ -1,0 +1,38 @@
+/ You can now combine a row and column if you just need a 12 column row
+-# .row.columns
+-#   %nav{"aria-label" => "You are here:", :role => "navigation"}
+-#     %ul.breadcrumbs
+-#       %li
+-#         %a{:href => "#"} Home
+-#       %li
+-#         %a{:href => "#"} Features
+-#       %li.disabled Gene Splicing
+-#       %li
+-#         %span.show-for-sr Current:
+-#         Cloning
+.row
+  -# .medium-6.columns
+  -#   %img.thumbnail{:src => "http://placehold.it/650x350"}/
+  -#   .row.small-up-4
+  -#     .column
+  -#       %img.thumbnail{:src => "http://placehold.it/250x200"}/
+  -#     .column
+  -#       %img.thumbnail{:src => "http://placehold.it/250x200"}/
+  -#     .column
+  -#       %img.thumbnail{:src => "http://placehold.it/250x200"}/
+  -#     .column
+  -#       %img.thumbnail{:src => "http://placehold.it/250x200"}/
+  .medium-6.large-5.columns
+    %h3= @item.name
+    %p= @item.description
+.column.row
+  %hr/
+  %ul#example-tabs.tabs{"data-tabs" => ""}
+  .tabs-content{"data-tabs-content" => "example-tabs"}
+    #panel1.tabs-panel.is-active
+      %h4 Reviews
+      - @reviews.each do |review|
+        = render 'items/review', review: review
+
+      - if is_user_authenticated?
+        = render 'items/review_form'

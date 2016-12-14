@@ -1,19 +1,10 @@
 class ReviewsController < ApplicationController
   layout "layout"
 
-  def index
-    @reviews. Review.limited(1)
-    # @reviews = Review.all.order('created_at DESC')
-  end
-
-  def show
-    @review = Review.find(params['id'])
-  end
-
   def new
     if !@user.present?
       flash[:error] = "Please sign in to post a review"
-      redirect_to reviews_path
+      redirect_to items_path
     end
 
     @review = Review.new
@@ -24,14 +15,12 @@ class ReviewsController < ApplicationController
     @review.user_id = session['id']
 
     if @review.save
-      redirect_to review_path(@review)
-    else
-      render 'new'
+      redirect_to item_path(id: review_params[:item_id])
     end
   end
 
   private
     def review_params
-      params.require(:review).permit(:title, :body, :rating)
+      params.require(:review).permit(:title, :body, :rating, :item_id)
     end
 end

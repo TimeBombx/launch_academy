@@ -13,21 +13,20 @@
       .row
         .top-bar-left
           %ul.menu{"data-responsive-menu" => "accordion"}
-            %li.menu-text
-              = link_to reviews_path do
-                Launch Tech Reviews
-            %li
-              %input{:placeholder => "Search", :type => "search"}/
-            %li
-              %button.button{:type => "button"} Search
+            = link_to items_path do
+              %li.menu-text Launch Reviews
+            -# %li
+            -#   %input{:placeholder => "Search", :type => "search"}/
+            -# %li
+            -#   %button.button{:type => "button"} Search
 
             -# %li
             -#   %a{:href => "#"} One
         .top-bar-right
           %ul.dropdown.menu{"data-dropdown-menu" => ""}
             %li
-              = link_to new_review_path do
-                Post a Review
+              = link_to new_item_path do
+                Add an item
             %li.has-submenu
               - if @user.present?
                 %a{:href => "#0"} My account

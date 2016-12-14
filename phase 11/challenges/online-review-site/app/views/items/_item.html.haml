@@ -1,0 +1,7 @@
+.column
+  .callout
+    = link_to item_path(item) do
+      %p
+        %img{:alt => "image of a planet called Pegasi B", :src => "http://placehold.it/400x370&text=Intel"}/
+    = link_to item_path(item) do
+      %p.lead= item.name
