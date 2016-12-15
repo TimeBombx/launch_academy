@@ -1,0 +1,8 @@
+%h1 Restaurants
+
+%ul
+  - @restaurants.each do |r|
+    -# = render 'restaurant'
+    %li
+      = link_to restaurant_path(r) do
+        = r.name

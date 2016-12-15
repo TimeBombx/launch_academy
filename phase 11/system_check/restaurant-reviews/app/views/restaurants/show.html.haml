@@ -1,0 +1,10 @@
+%h1= @restaurant.name
+%ul
+  %li= @restaurant.address
+  %li= @restaurant.city
+  %li= @restaurant.state
+  %li= @restaurant.zip
+  - if @restaurant.description.empty?
+    %li= "No description"
+  - else
+    %li= @restaurant.description
