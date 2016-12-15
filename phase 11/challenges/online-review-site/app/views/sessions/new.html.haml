@@ -1,11 +1,33 @@
-.row
-  %h2 login
-  = form_for :user, method: "post" do |f|
-    .field
-      = f.label :username
-      = f.text_field :username, autofocus: true
-    .field
-      = f.label :password
-      = f.password_field :password, autocomplete: "off"
-    .actions
-      = f.submit "Login"
+.column.row
+  %ul#example-tabs.tabs{"data-tabs" => ""}
+    %li.tabs-title.is-active
+      %a{"aria-selected" => "true", :href => "#panel1"} Login
+    %li.tabs-title
+      %a{:href => "#panel2"} Sign up
+  .tabs-content{"data-tabs-content" => "example-tabs"}
+    #panel1.tabs-panel.is-active
+      %h2 login
+      = form_for :user, method: "post" do |f|
+        .field
+          = f.label :username
+          = f.text_field :username, autofocus: true
+        .field
+          = f.label :password
+          = f.password_field :password, autocomplete: "off"
+        .actions
+          = f.submit "Login"
+    #panel2.tabs-panel
+      .row.column
+        %h2 Sign up
+        = form_for @new_user do |f|
+          .field
+            = f.label :username
+            = f.text_field :username, autofocus: true
+          .field
+            = f.label :password
+            = f.password_field :password, autocomplete: "off"
+          .field
+            = f.label :password_confirmation
+            = f.password_field :password_confirmation, autocomplete: "off"
+          .actions
+            = f.submit "Sign up"

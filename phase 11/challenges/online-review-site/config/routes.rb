@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   post '/user/signout', to: 'sessions#destroy'
 
   resources :items
-  resources :reviews, only: [:new, :create]
+  resources :reviews, only: [:new, :create, :destroy]
   resources :users, except: [:destroy]
 end

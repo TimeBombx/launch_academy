@@ -16,6 +16,8 @@ class ItemsController < ApplicationController
   end
 
   def create
+    @item = Item.create(item_params)
+    redirect_to item_path(@item)
   end
 
   def delete
@@ -23,4 +25,9 @@ class ItemsController < ApplicationController
 
   def update
   end
+
+  private
+    def item_params
+      params.require(:item).permit(:name, :description)
+    end
 end

@@ -1,10 +1,10 @@
 class SessionsController < ApplicationController
   layout "layout"
 
-
   skip_before_action :verify_authenticity_token, only: [:destroy]
 
   def new
+    @new_user = User.new
   end
 
   def create

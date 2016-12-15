@@ -12,11 +12,18 @@
       %span.downvote-button.fi-dislike.icon-medium
 
   .media-object-section
-    - review.rating.times do
-      .star.fullStar.starRepo
-    - (5 - review.rating).times do
-      .star.tmp_es.starRepo
-    %h5= review.title
+    .title{style:"width: 600px;"}
+      - review.rating.times do
+        .star.fullStar.starRepo
+      - (5 - review.rating).times do
+        .star.tmp_es.starRepo
+      %h5= review.title
     %p= review.body
 
   %hr
+  - if is_admin? || (is_user_authenticated? && review.user.id == @auth_user.id)
+    = link_to review_path(review, authenticity_token: form_authenticity_token), method: :delete do
+      Edit
+    |
+    = link_to review_path(review, authenticity_token: form_authenticity_token), method: :delete do
+      Delete

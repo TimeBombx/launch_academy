@@ -9,5 +9,5 @@ include BCrypt
 password = Password.create("password")
 u = User.create!(username: "TimeBomb", password_hash: password, role: "admin", created_at: "2016-12-28 15:26:38", updated_at: "2016-12-28 15:26:38")
 
-item = Item.create!(name: "Intel core i7 6700k", description: "Test item")
-Review.create!(title: "Intel core i7 6700k review", body: "test", rating: 1, user_id: 1, item_id: item.id)
+item = Item.create!(name: "Intel core i7 6700k", description: "LGA 1151\nUnlocked Processor\nDDR4 & DDR3L Support\nDisplay Resolution up to 4096x2304\nIntel Turbo Boost Technology\nCompatible with Intel 100 Series Chipset Motherboards")
+Review.create!(title: "Intel core i7 6700k review", body: "Good for gaming, editing, browsing the internet, and heating up a small room.", rating: 5, user_id: 1, item_id: item.id)
