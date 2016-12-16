@@ -1,9 +1,39 @@
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Restaurant Reviews
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
+    %meta{ charset: "utf-8", name: "viewport", content: "width=device-widh" }
+    %meta{ name: "viewport", content: "width=device-widh", "initial-scale": 1.0 }
+    %title Launch Tech Reviews
+    = stylesheet_link_tag "application.css"
+    = javascript_include_tag "application.js"
   %body
+    .title-bar{"data-hide-for" => "small", "data-responsive-toggle" => "realEstateMenu"}
+      %button.menu-icon{"data-toggle" => "", :type => "button"}
+      .title-bar-title Menu
+    .top-bar
+      .row
+        .top-bar-left
+          %ul.menu{"data-responsive-menu" => "accordion"}
+            = link_to restaurants_path do
+              %li.menu-text Restaurant Reviews
+        .top-bar-right
+          %ul.menu
+            %li
+              = link_to new_restaurant_path do
+                Add New Restaurant
+    %br
+
+    - if flash[:notice]
+      .row
+        .success.callout{"data-closable" => ""}
+          %p= flash[:notice]
+          %button.close-button{"aria-label" => "Dismiss alert", "data-close" => "", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+
+    - if flash[:error]
+      .row
+        .alert.callout{"data-closable" => ""}
+          %p= flash[:error]
+          %button.close-button{"aria-label" => "Dismiss alert", "data-close" => "", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+
     = yield

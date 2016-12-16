@@ -1,7 +1,7 @@
 Restaurant.create(
-  name: "Test",
-  address: "N/A",
-  city: "N/A",
+  name: "Big tony's",
+  address: "525 Eaton St",
+  city: "Providence",
   state: "Rhode Island",
-  zip: '03233'
+  zip: '02908'
 )

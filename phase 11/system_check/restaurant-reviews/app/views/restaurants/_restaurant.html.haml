@@ -1,0 +1,8 @@
+.column
+  .callout
+    = link_to restaurant_path(restaurant) do
+      %p
+        %img{:alt => "image of a planet called Pegasi B", :src => "http://placehold.it/400x370&text=#{restaurant.name}"}/
+    = link_to restaurant_path(restaurant) do
+      %p.lead= restaurant.name
+    %p.subheader= restaurant.description

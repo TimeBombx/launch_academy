@@ -1,10 +1,16 @@
-%h1= @restaurant.name
-%ul
-  %li= @restaurant.address
-  %li= @restaurant.city
-  %li= @restaurant.state
-  %li= @restaurant.zip
-  - if @restaurant.description.empty?
-    %li= "No description"
-  - else
-    %li= @restaurant.description
+.column.row
+  %h3= @restaurant.name
+  %h5= @restaurant.full_location
+  %p
+    %pre= @restaurant.description.strip
+  %hr/
+  %ul#example-tabs.tabs{"data-tabs" => ""}
+  .tabs-content{"data-tabs-content" => "example-tabs"}
+    #panel1.tabs-panel.is-active
+      %h4 Reviews
+      = link_to new_restaurant_review_path(@restaurant) do
+        Add a Review
+      %br
+      %br
+      - @restaurant.reviews.each do |review|
+        = render 'restaurants/review', review: review

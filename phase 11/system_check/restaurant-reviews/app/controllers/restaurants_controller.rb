@@ -14,8 +14,13 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    Restaurant.create(rest_params)
-    redirect_to restaurants_path
+    @restaurant = Restaurant.create(rest_params)
+    if @restaurant.valid?
+      flash.notice = "Restaurant added successfully"
+      redirect_to restaurants_path
+    else
+      render 'new'
+    end
   end
 
   private

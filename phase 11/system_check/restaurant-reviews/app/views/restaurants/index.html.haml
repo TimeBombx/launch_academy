@@ -1,8 +1,3 @@
-%h1 Restaurants
-
-%ul
+.row.small-up-1.medium-up-2.large-up-3
   - @restaurants.each do |r|
-    -# = render 'restaurant'
-    %li
-      = link_to restaurant_path(r) do
-        = r.name
+    = render "restaurants/restaurant", restaurant: r

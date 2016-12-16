@@ -18,7 +18,7 @@ feature "visitors can add reviews for restaurants" do
     expect(page).to have_content "Review Form for Dumpling King"
 
     fill_in "Rating", with: 5
-    fill_in "Review", with: "This is a raving review!"
+    fill_in "Description", with: "This is a raving review!"
     click_button "Add Review"
 
     expect(page).to have_content "Review added successfully"

@@ -1,2 +1,18 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+.row
+  - @review.errors.full_messages.each do |value|
+    = value
+    %br
+  %br
+
+  %p
+    Review Form for
+    = @restaurant.name
+  = form_for [@restaurant, @review] do |f|
+    = f.label :rating, "Rating:"
+    = f.text_field :rating
+
+    = f.label :body, "Description:"
+    = f.text_area :body
+
+    = f.hidden_field :restaurant_id, value: @restaurant.id
+    = f.submit "Add Review"
