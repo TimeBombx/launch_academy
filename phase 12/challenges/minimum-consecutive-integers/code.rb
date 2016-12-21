@@ -2,7 +2,7 @@
 def minimum_consecutive_integers(array)
   array.sort!
   min = array[0]
-  max = array[array.length - 1]
+  max = array[-1]
   numbers = (min..max).to_a
   (numbers - array).length
 end
