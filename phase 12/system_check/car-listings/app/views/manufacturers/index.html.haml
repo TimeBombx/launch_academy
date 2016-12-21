@@ -1,0 +1,13 @@
+%h1 Manufacturers
+
+- if flash[:notice]
+  %p= flash[:notice]
+
+%ul
+  - @manufacturers.each do |m|
+    %li
+      = link_to manufacturer_path(m) do
+        = m.name
+
+= link_to new_manufacturer_path do
+  Post a new manufacturer

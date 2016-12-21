@@ -1,0 +1,15 @@
+%h1 Cars
+
+- if flash[:notice]
+  %p= flash[:notice]
+
+%ul
+  - @cars.each do |car|
+    %li= car.info
+
+= link_to new_car_path do
+  Post a new car
+%br
+%br
+= link_to manufacturers_path do
+  View the manufacturers

@@ -1,0 +1,30 @@
+%h1 Create a new car
+
+- if @car.errors
+  %ul
+    - @car.errors.full_messages.each do |error|
+      %li= error
+
+
+= form_for @car do |f|
+  = f.label :year, "Year: "
+  = f.text_field :year
+  %br
+  %br
+  = f.label :manufacturer_id, "Make: "
+  = f.collection_select :manufacturer_id, @manufacturers, :id, :name, selected: @manufacturer.id
+  %br
+  %br
+  = f.label :model, "Model: "
+  = f.text_field :model
+  %br
+  %br
+  = f.label :mileage, "Mileage: "
+  = f.text_field :mileage
+  %br
+  %br
+  = f.label :color, "Color: "
+  = f.text_field :color
+  %br
+  %br
+  = f.submit "Submit new car"

@@ -1,0 +1,12 @@
+%h1= @manufacturer.name
+
+%ul
+  - @manufacturer.cars.each do |car|
+    %li= car.info
+
+= link_to new_car_path(manufacturer: @manufacturer.name) do
+  Post a new car
+%br
+%br
+= link_to manufacturers_path do
+  Back to manufacturers
