@@ -5,7 +5,7 @@ class Car < ApplicationRecord
   validates_presence_of :mileage
   validates_presence_of :manufacturer_id
 
-  validates_numericality_of :year, greater_than: 1920
+  validates_numericality_of :year, greater_than_or_equal_to: 1920
 
   belongs_to :manufacturer
 

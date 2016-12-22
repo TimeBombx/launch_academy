@@ -7,12 +7,15 @@
 
 
 = form_for @manufacturer do |f|
-  = f.label :name, "Name: "
-  = f.text_field :name
-  %br
-  %br
-  = f.label :country, "Country: "
-  = f.text_field :country
-  %br
-  %br
+  %p
+    = f.label :name, "Name: "
+    = f.text_field :name
+  %p
+    = f.label :country, "Country: "
+    = f.text_field :country
+
   = f.submit "Submit new manufacturer"
+
+%p
+  = link_to manufacturers_path do
+    Back to manufacturers

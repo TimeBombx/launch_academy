@@ -11,6 +11,7 @@ class ManufacturersController < ApplicationController
     @manufacturer = Manufacturer.create(manufacturer_params)
 
     if @manufacturer.save
+      flash.notice = "Successfully created the manufacturer"
       redirect_to manufacturers_path
     else
       render 'new'

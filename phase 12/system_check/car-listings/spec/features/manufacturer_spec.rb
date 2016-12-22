@@ -13,11 +13,29 @@ describe Manufacturer do
   """
   describe "new manufacturer" do
     it 'creates a new manufacturer' do
+      visit new_manufacturer_path
+      fill_in "Name", with: "Nissan"
+      fill_in "Country", with: "Japan"
+      click_button "Submit new manufacturer"
 
+      expect(page).to have_content("Successfully")
     end
 
     it 'should show errors' do
+      visit new_manufacturer_path
+      click_button "Submit new manufacturer"
 
+      expect(page).to have_content("Name can't be blank")
+      expect(page).to have_content("Country can't be blank")
+    end
+  end
+
+  describe 'index page' do
+    let!(:manufacturer) { Manufacturer.create(name: "Nissan", country: "Japan") }
+
+    it 'should show all the manufacturers' do
+      visit manufacturers_path
+      expect(page).to have_content(manufacturer.name)
     end
   end
 end

@@ -9,5 +9,9 @@
       = link_to manufacturer_path(m) do
         = m.name
 
-= link_to new_manufacturer_path do
-  Post a new manufacturer
+%p
+  = link_to new_manufacturer_path do
+    Post a new manufacturer
+%p
+  = link_to cars_path do
+    View all cars
